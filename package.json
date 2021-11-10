@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "letterFrequency",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "stylelint": "^14.0.1",
+    "stylelint-config-standard": "^23.0.0"
   }
 }
