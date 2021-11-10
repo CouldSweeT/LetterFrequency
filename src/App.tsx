@@ -49,34 +49,37 @@ export const App: React.FC = () => {
   return (
    <>
      <input type="text" value={inputText} onChange={event => {
-       setInputText(event.target.value);
+       setInputText(event.target.value.replace(/[^0-9^A-zА-яё\s]/g, ''));
      }}/>
      <table>
-       <tr>
-         <th onClick={() => setSortBy('letter')}>Letter</th>
-         <th onClick={() => setSortBy('count')}>Count</th>
-         <th>%</th>
-       </tr>
-       {
-         Object.keys(objectOfLetters).map((letter: string)=>{
-
-           return (
-             <Fragment key={letter}>
-               <tr>
-                 <td>
-                   {letter}
-                 </td>
-                 <td>
-                   {objectOfLetters[letter]}
-                 </td>
-                 <td>
-                   {(objectOfLetters[letter] / Object.values(objectOfLetters).reduce((a, b) => a + b, 0) * 100).toFixed(2)}
-                 </td>
-               </tr>
-             </Fragment>
-           )
-         })
-       }
+       <thead>
+         <tr>
+           <th onClick={() => setSortBy('letter')}>Letter</th>
+           <th onClick={() => setSortBy('count')}>Count</th>
+           <th>%</th>
+         </tr>
+       </thead>
+       <tbody>
+         {
+           Object.keys(objectOfLetters).map((letter: string)=>{
+             return (
+               <Fragment key={letter}>
+                 <tr>
+                   <td>
+                     {letter}
+                   </td>
+                   <td>
+                     {objectOfLetters[letter]}
+                   </td>
+                   <td>
+                     {(objectOfLetters[letter] / Object.values(objectOfLetters).reduce((a, b) => a + b, 0) * 100).toFixed(2)}
+                   </td>
+                 </tr>
+               </Fragment>
+             )
+           })
+         }
+       </tbody>
      </table>
    </>
 
