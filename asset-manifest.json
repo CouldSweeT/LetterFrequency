@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/LetterFrequency/static/css/main.ce089041.chunk.css",
+    "main.js": "/LetterFrequency/static/js/main.bea29c12.chunk.js",
+    "main.js.map": "/LetterFrequency/static/js/main.bea29c12.chunk.js.map",
+    "runtime-main.js": "/LetterFrequency/static/js/runtime-main.43b4c357.js",
+    "runtime-main.js.map": "/LetterFrequency/static/js/runtime-main.43b4c357.js.map",
+    "static/js/2.737b3203.chunk.js": "/LetterFrequency/static/js/2.737b3203.chunk.js",
+    "static/js/2.737b3203.chunk.js.map": "/LetterFrequency/static/js/2.737b3203.chunk.js.map",
+    "index.html": "/LetterFrequency/index.html",
+    "static/css/main.ce089041.chunk.css.map": "/LetterFrequency/static/css/main.ce089041.chunk.css.map",
+    "static/js/2.737b3203.chunk.js.LICENSE.txt": "/LetterFrequency/static/js/2.737b3203.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.43b4c357.js",
+    "static/js/2.737b3203.chunk.js",
+    "static/css/main.ce089041.chunk.css",
+    "static/js/main.bea29c12.chunk.js"
+  ]
+}
