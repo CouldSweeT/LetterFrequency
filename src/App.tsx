@@ -8,7 +8,8 @@ interface LetterObject {
 export const App: React.FC = () => {
   const [inputText, setInputText] = useState<string>('')
   const [objectOfLetters, setObjectOfLetters] = useState<LetterObject>({})
-  const [sortBy, setSortBy] = useState<string>('')
+  const [sortBy, setSortBy] = useState<string>('count')
+  const [isReversed, changeReverse] = useState<boolean>(false)
 
   useEffect(() => {
     const objectLetters: LetterObject = {}
@@ -25,9 +26,9 @@ export const App: React.FC = () => {
       let ordered = Object.keys(objectLetters).sort((a, b) => {
         switch (sortBy) {
           case 'letter':
-            return a.localeCompare(b);
+            return  isReversed ? a.localeCompare(b) : b.localeCompare(a)
           case 'count':
-            return objectLetters[a] - objectLetters[b]
+            return isReversed ? objectLetters[b] - objectLetters[a] : objectLetters[a] - objectLetters[b]
           default:
             return 0;
         }
@@ -35,26 +36,34 @@ export const App: React.FC = () => {
         (obj: LetterObject , key) => {
           obj[key] = objectLetters[key];
           return obj;
-        },
-        {}
-      );
+        }, {});
 
       return setObjectOfLetters(ordered)
     }
 
     setObjectOfLetters(objectLetters)
-  }, [sortBy, inputText])
+  }, [sortBy, inputText, isReversed])
 
   return (
    <>
      <input type="text" value={inputText} onChange={event => {
-       setInputText(event.target.value.replace(/[^0-9^A-zА-яё\s]/g, ''));
+       setInputText(event.target.value.replace(/[^0-9^A-z\s]/g, ''));
      }}/>
      <table className="table">
        <thead>
          <tr className="table__row">
-           <th onClick={() => setSortBy('letter')} className="table__cell">Letter</th>
-           <th onClick={() => setSortBy('count')} className="table__cell">Count</th>
+           <th onClick={() => {
+             setSortBy('letter')
+             changeReverse(!isReversed)
+           }} className="table__cell">
+             Letter
+           </th>
+           <th onClick={() => {
+             setSortBy('count')
+             changeReverse(!isReversed)
+           }} className="table__cell">
+             Count
+           </th>
            <th className="table__cell">%</th>
          </tr>
        </thead>
@@ -75,9 +84,7 @@ export const App: React.FC = () => {
                    </td>
                  </tr>
                </Fragment>
-             )
-           })
-         }
+             )})}
        </tbody>
      </table>
    </>
