@@ -1,0 +1,13 @@
+.table {
+  border: 1px solid black;
+
+  &__row {
+    margin: 10px;
+  }
+
+  &__cell {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+  }
+}

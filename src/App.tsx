@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import './App.css';
+import './App.scss';
 
 interface LetterObject {
   [keys : string]: number
@@ -51,12 +51,12 @@ export const App: React.FC = () => {
      <input type="text" value={inputText} onChange={event => {
        setInputText(event.target.value.replace(/[^0-9^A-zА-яё\s]/g, ''));
      }}/>
-     <table>
+     <table className="table">
        <thead>
-         <tr>
-           <th onClick={() => setSortBy('letter')}>Letter</th>
-           <th onClick={() => setSortBy('count')}>Count</th>
-           <th>%</th>
+         <tr className="table__row">
+           <th onClick={() => setSortBy('letter')} className="table__cell">Letter</th>
+           <th onClick={() => setSortBy('count')} className="table__cell">Count</th>
+           <th className="table__cell">%</th>
          </tr>
        </thead>
        <tbody>
@@ -64,14 +64,14 @@ export const App: React.FC = () => {
            Object.keys(objectOfLetters).map((letter: string)=>{
              return (
                <Fragment key={letter}>
-                 <tr>
-                   <td>
+                 <tr className="table__row">
+                   <td className="table__cell">
                      {letter}
                    </td>
-                   <td>
+                   <td className="table__cell">
                      {objectOfLetters[letter]}
                    </td>
-                   <td>
+                   <td className="table__cell">
                      {(objectOfLetters[letter] / Object.values(objectOfLetters).reduce((a, b) => a + b, 0) * 100).toFixed(2)}
                    </td>
                  </tr>
