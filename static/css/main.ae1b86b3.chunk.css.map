@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.scss"],"names":[],"mappings":"AAAA,OACE,qBAAA,CAEA,YACE,WAAA,CAGF,aACE,YAAA,CACA,iBAAA,CACA,qBAAA","file":"main.ae1b86b3.chunk.css","sourcesContent":[".table {\n  border: 1px solid black;\n\n  &__row {\n    margin: 10px;\n  }\n\n  &__cell {\n    padding: 10px;\n    text-align: center;\n    border: 1px solid black;\n  }\n}\n"]}
