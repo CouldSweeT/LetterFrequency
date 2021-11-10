@@ -32,8 +32,7 @@ export const App: React.FC = () => {
             return 0;
         }
       }).reduce(
-        (obj, key) => {
-          // @ts-ignore
+        (obj: LetterObject , key) => {
           obj[key] = objectLetters[key];
           return obj;
         },
